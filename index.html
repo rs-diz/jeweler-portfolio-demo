@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow" data-publish>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Портфолио ювелирного дизайнера</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Forum&family=Golos+Text:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --velvet:#0F3B33;      /* малахитовый бархат ложемента */
+  --velvet-deep:#0A2B25;
+  --paper:#E9E7E2;       /* холодная платиновая бумага */
+  --paper-2:#DEDBD4;
+  --gold:#B8955A;        /* жёлтое золото, только линии и акценты */
+  --gold-soft:#D9C49C;
+  --ink:#23262A;         /* графит карандаша */
+  --mist:#8E9599;
+  --line-paper:rgba(35,38,42,.18);
+  --line-velvet:rgba(217,196,156,.28);
+  --serif:"Forum", "Times New Roman", serif;
+  --sans:"Golos Text", system-ui, sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 40px}
+.sheet{padding:120px 0}
+.velvet{background:var(--velvet);color:var(--paper)}
+.velvet .muted{color:#A9BDB6}
+.muted{color:#5D6368}
+
+/* Номер листа портфолио: портфолио сдаётся как альбом листов */
+.sheet-head{display:grid;grid-template-columns:140px 1fr;gap:40px;align-items:baseline;margin-bottom:64px}
+.sheet-no{font:400 15px/1 var(--serif);color:var(--gold);border-top:1px solid var(--gold);padding-top:12px}
+h2{font:400 clamp(40px,5.2vw,68px)/1.05 var(--serif);letter-spacing:.005em}
+h3{font:400 28px/1.15 var(--serif)}
+.lead{font:400 clamp(24px,2.6vw,32px)/1.35 var(--serif);max-width:28ch}
+
+/* ---------- Обложка ---------- */
+.cover{background:radial-gradient(120% 90% at 75% 40%, #14493F 0%, var(--velvet) 45%, var(--velvet-deep) 100%);color:var(--paper);min-height:100vh;display:flex;flex-direction:column}
+.topnav{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:28px 0;font-size:14px}
+.topnav ul{display:flex;gap:26px;list-style:none;flex-wrap:wrap}
+.topnav a{text-decoration:none;color:#C6D3CE}
+.topnav a:hover{color:var(--gold-soft)}
+.mono{font:400 22px/1 var(--serif);color:var(--gold);letter-spacing:.08em}
+.cover>.wrap{width:100%}
+.cover-body{flex:1;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding-bottom:60px}
+.cover h1{font:400 clamp(64px,9.5vw,148px)/.92 var(--serif);letter-spacing:-.01em}
+.cover h1 span{display:block;padding-left:.55em}
+.role{margin-top:36px;font:400 clamp(22px,2.2vw,28px)/1.3 var(--serif);color:var(--gold-soft)}
+.purpose{margin-top:20px;max-width:40ch;color:#A9BDB6;font-size:16px}
+.cover-foot{display:flex;justify-content:space-between;border-top:1px solid var(--line-velvet);padding:20px 0 28px;font-size:14px;color:#A9BDB6}
+#brilliant{width:100%;max-width:520px;margin-left:auto}
+#brilliant path,#brilliant circle,#brilliant polygon{fill:none;stroke:var(--gold);stroke-width:1}
+#brilliant .thin{stroke-width:.6;stroke:var(--gold-soft);opacity:.55}
+#brilliant text{fill:var(--gold-soft);font:13px var(--sans);stroke:none}
+
+/* ---------- Задача ---------- */
+.mission{display:grid;grid-template-columns:140px 1fr;gap:40px}
+.mission .lead{margin-bottom:64px}
+.tasks{display:grid;grid-template-columns:repeat(3,1fr);gap:48px;border-top:1px solid var(--line-paper);padding-top:36px}
+.tasks h3{margin-bottom:12px}
+.tasks p{font-size:16px;color:#4A5055;max-width:34ch}
+
+/* ---------- Опыт ---------- */
+.timeline{list-style:none;border-top:1px solid var(--line-paper)}
+.timeline li{display:grid;grid-template-columns:140px 1fr 1.1fr;gap:40px;padding:34px 0;border-bottom:1px solid var(--line-paper)}
+.years{font:400 22px/1.2 var(--serif);color:var(--velvet)}
+.timeline h3{font-size:26px}
+.timeline .place{margin-top:6px;font-size:15px;color:#5D6368}
+.timeline p{font-size:16px;color:#4A5055}
+
+/* ---------- Образование и навыки ---------- */
+.edu-skills{background:var(--paper-2)}
+.two{display:grid;grid-template-columns:140px 1fr 1fr;gap:40px}
+.edu{list-style:none}
+.edu li{padding:22px 0;border-top:1px solid var(--line-paper)}
+.edu b{display:block;font:400 22px/1.25 var(--serif);margin-bottom:4px}
+.edu span{font-size:15px;color:#5D6368}
+.skills h3{font-size:22px;margin:26px 0 10px}
+.skills h3:first-child{margin-top:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;padding:6px 14px;border:1px solid rgba(15,59,51,.35);border-radius:999px;color:var(--velvet)}
+.col-title{font:400 30px/1.1 var(--serif);margin-bottom:22px}
+
+/* ---------- Вдохновение ---------- */
+.mood{display:grid;grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:260px 260px;gap:14px}
+.tile{position:relative;overflow:hidden;border-radius:2px}
+.tile figcaption{position:absolute;left:0;right:0;bottom:0;padding:18px 20px;font-size:14px;line-height:1.4;color:var(--paper);background:linear-gradient(transparent,rgba(5,25,21,.78))}
+.tile figcaption b{display:block;font:400 22px/1.2 var(--serif);color:#fff}
+.t-frost{grid-row:span 2;background:#C9D3D6}
+.t-arch{background:#7A3A2E}
+.t-pom{background:#5E1F2A}
+.t-mal{grid-column:span 2;background:
+  repeating-radial-gradient(ellipse at 20% 120%, #0E4A3C 0 9px, #1D6B55 9px 15px, #0B3A30 15px 22px, #2A7E66 22px 26px)}
+.mood-note{margin-top:40px;display:grid;grid-template-columns:140px 1fr;gap:40px}
+.mood-note p{max-width:62ch;color:#C6D3CE}
+
+/* ---------- Эскиз и рендер ---------- */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line-paper);margin-bottom:56px;counter-reset:s}
+.steps li{padding:16px 16px 0 0;font-size:15px;color:#5D6368;counter-increment:s}
+.steps li::before{content:counter(s);display:block;font:400 26px/1 var(--serif);color:var(--velvet);margin-bottom:6px}
+.steps li.on{color:var(--ink)}
+.compare-row{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:start}
+.compare{position:relative;aspect-ratio:1/1;background:#F3F2EE;border:1px solid var(--line-paper);overflow:hidden;--pos:50%}
+.compare .layer{position:absolute;inset:0}
+.compare .render{clip-path:inset(0 0 0 var(--pos));background:radial-gradient(80% 70% at 50% 45%, #1A5246 0%, var(--velvet) 55%, var(--velvet-deep) 100%)}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--pos);width:1px;background:var(--gold);pointer-events:none}
+.compare .knob{position:absolute;top:50%;left:var(--pos);width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;background:var(--paper);border:1px solid var(--gold);pointer-events:none;display:grid;place-items:center}
+.compare .knob svg{width:20px}
+.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize}
+.compare .tag{position:absolute;top:16px;font-size:13px;padding:4px 10px;border-radius:2px;pointer-events:none}
+.compare .tag.l{left:16px;background:rgba(233,231,226,.9)}
+.compare .tag.r{right:16px;background:rgba(10,43,37,.8);color:var(--paper)}
+.compare-hint{margin-top:12px;font-size:14px;color:#5D6368}
+.passport h3{font-size:36px;margin-bottom:8px}
+.passport>p{color:#4A5055;margin-bottom:28px}
+.specs{width:100%;border-collapse:collapse;font-size:15px}
+.specs th,.specs td{text-align:left;padding:11px 0;border-top:1px solid var(--line-paper);vertical-align:top}
+.specs th{font-weight:400;color:#5D6368;width:44%}
+
+/* ---------- 3D ---------- */
+.models{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.model{border-top:1px solid var(--gold);padding-top:20px}
+.model .stage{aspect-ratio:4/5;background:radial-gradient(70% 60% at 50% 45%, #154A40, var(--velvet-deep));display:grid;place-items:center;margin-bottom:22px}
+.model .stage svg{width:72%}
+.model .stage svg *{fill:none;stroke:var(--gold-soft);stroke-width:.8}
+.model .stage svg .hi{stroke:var(--gold);stroke-width:1.3}
+.model h3{margin-bottom:6px}
+.model p{font-size:15px;color:#A9BDB6;margin-bottom:14px}
+.model dl{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font-size:14px}
+.model dt{color:#8FA8A0}
+
+/* ---------- Контакты ---------- */
+.contacts{display:grid;grid-template-columns:140px 1fr 1fr;gap:40px;align-items:end}
+.contacts ul{list-style:none;font:400 26px/1.6 var(--serif)}
+.contacts a{text-decoration:none;border-bottom:1px solid var(--gold)}
+.demo-note{margin-top:80px;padding-top:20px;border-top:1px solid var(--line-paper);font-size:14px;color:#5D6368}
+
+@media (max-width:960px){
+  .wrap{padding:0 16px}
+  .sheet{padding:80px 0}
+  .topnav ul{display:none}
+  .cover-body{grid-template-columns:1fr;padding-top:20px}
+  #brilliant{max-width:360px;margin:0 auto}
+  .sheet-head,.mission,.mood-note,.two,.contacts{grid-template-columns:1fr;gap:20px}
+  .sheet-head{margin-bottom:40px}
+  .sheet-no{width:120px}
+  .tasks{grid-template-columns:1fr;gap:28px}
+  .timeline li{grid-template-columns:1fr;gap:8px}
+  .mood{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px 220px}
+  .t-frost{grid-row:span 1;grid-column:span 2}
+  .compare-row{grid-template-columns:1fr;gap:36px}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:16px}
+  .models{grid-template-columns:1fr;gap:48px}
+  .cover-foot{flex-direction:column;gap:6px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media print{
+  .topnav{display:none}
+  .sheet,.cover{break-before:page;min-height:auto}
+  body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+
+/* Водяной знак демо */
+.watermark{position:fixed;inset:0;z-index:50;pointer-events:none;background:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22420%22%20height%3D%22260%22%3E%3Ctext%20x%3D%22210%22%20y%3D%22130%22%20text-anchor%3D%22middle%22%20transform%3D%22rotate(-24%20210%20130)%22%20font-family%3D%22Golos%20Text%2C%20Arial%2C%20sans-serif%22%20font-size%3D%2217%22%20fill%3D%22rgb(128%2C128%2C128)%22%20fill-opacity%3D%220.22%22%3E%D0%94%D0%B5%D0%BC%D0%BE.%20%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%3A%20%D0%A1%D0%B0%D0%BA%D0%B8%D0%BD%D0%B0%2C%20%40sakina_web%3C%2Ftext%3E%3C%2Fsvg%3E") repeat}
+</style>
+</head>
+<body>
+<div class="watermark" aria-hidden="true"></div>
+
+<!-- Лист 1. Обложка -->
+<header class="cover" id="top">
+  <div class="wrap topnav">
+    <span class="mono" aria-label="Монограмма">ВС</span>
+    <nav aria-label="Разделы портфолио">
+      <ul>
+        <li><a href="#task">Задача</a></li>
+        <li><a href="#experience">Опыт</a></li>
+        <li><a href="#education">Образование и навыки</a></li>
+        <li><a href="#inspiration">Вдохновение</a></li>
+        <li><a href="#sketch">Эскиз и рендер</a></li>
+        <li><a href="#models">3D-проекты</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="wrap cover-body">
+    <div>
+      <h1>Вера<span>Самойлова</span></h1>
+      <p class="role">Дизайнер ювелирных украшений</p>
+      <p class="purpose">Портфолио для представления в Торгово-промышленную палату: опыт, образование, авторские коллекции и 3D-модели, готовые к производству.</p>
+    </div>
+    <svg id="brilliant" viewBox="-220 -220 440 440" role="img" aria-label="Чертёж огранки кр-57, вид сверху"></svg>
+  </div>
+  <div class="wrap cover-foot">
+    <span>Москва, 2026</span>
+    <span>Золото, серебро, драгоценные камни. От эскиза до мастер-модели</span>
+  </div>
+</header>
+
+<main>
+<!-- Лист 2. Задача дизайнера -->
+<section class="sheet" id="task">
+  <div class="wrap">
+    <div class="mission">
+      <div class="sheet-no">Лист 2</div>
+      <div>
+        <h2 class="lead">Моя задача: превратить идею в украшение, которое можно изготовить, носить и передать по наследству.</h2>
+        <div class="tasks">
+          <div><h3>Образ</h3><p>Нахожу историю коллекции и перевожу её в форму, пропорции и сочетание камней.</p></div>
+          <div><h3>Технологичность</h3><p>Проектирую так, чтобы изделие отлилось, закрепка была надёжной, а вес металла оправдан.</p></div>
+          <div><h3>Ответственность</h3><p>Веду изделие до партии: согласую с технологом, проверяю мастер-модель и первый образец.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Лист 3. Опыт -->
+<section class="sheet" id="experience" style="padding-top:0">
+  <div class="wrap">
+    <div class="sheet-head"><div class="sheet-no">Лист 3</div><h2>Опыт работы</h2></div>
+    <ol class="timeline" reversed>
+      <li>
+        <div class="years">2021 — сейчас</div>
+        <div><h3>Ведущий дизайнер</h3><p class="place">Ювелирная мануфактура, Кострома</p></div>
+        <p>Разрабатываю 3–4 коллекции в год для серийного производства. Веду ассортимент колец и серёг, готовлю техническую документацию для цеха.</p>
+      </li>
+      <li>
+        <div class="years">2018 — 2021</div>
+        <div><h3>Дизайнер, 3D-моделлер</h3><p class="place">Ювелирная студия, Москва</p></div>
+        <p>Индивидуальные заказы: помолвочные кольца, семейные реликвии, переделка старых изделий. Модели под выращивание и литьё.</p>
+      </li>
+      <li>
+        <div class="years">2016 — 2018</div>
+        <div><h3>Ассистент художника-ювелира</h3><p class="place">Частная мастерская, Санкт-Петербург</p></div>
+        <p>Эскизы, гуашевая подача, работа с восковыми моделями, подбор камней.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Лист 4. Образование и навыки -->
+<section class="sheet edu-skills" id="education">
+  <div class="wrap">
+    <div class="sheet-head"><div class="sheet-no">Лист 4</div><h2>Образование и навыки</h2></div>
+    <div class="two">
+      <div></div>
+      <div>
+        <p class="col-title">Образование</p>
+        <ul class="edu">
+          <li><b>Художественное училище</b><span>Художественная обработка металла, ювелирное направление. 2012 — 2016</span></li>
+          <li><b>Курс 3D-моделирования украшений</b><span>Rhinoceros и MatrixGold. 2018</span></li>
+          <li><b>Основы гемологии</b><span>Диагностика и оценка камней. 2020</span></li>
+          <li><b>Скульптинг в ZBrush</b><span>Органические формы и рельеф. 2022</span></li>
+        </ul>
+      </div>
+      <div class="skills">
+        <p class="col-title">Навыки</p>
+        <h3>Ручная подача</h3>
+        <div class="chips"><span>Эскиз карандашом</span><span>Гуашь и отмывка</span><span>Технический чертёж</span></div>
+        <h3>3D и визуализация</h3>
+        <div class="chips"><span>Rhinoceros</span><span>MatrixGold</span><span>ZBrush</span><span>KeyShot</span></div>
+        <h3>Материалы и производство</h3>
+        <div class="chips"><span>Литьё по выплавляемым моделям</span><span>Виды закрепок</span><span>Расчёт веса металла</span><span>Подбор камней</span></div>
+        <h3>Документация</h3>
+        <div class="chips"><span>Паспорт изделия</span><span>Пробы и клеймение</span><span>ТЗ для цеха</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Лист 5. Вдохновение -->
+<section class="sheet velvet" id="inspiration">
+  <div class="wrap">
+    <div class="sheet-head"><div class="sheet-no">Лист 5</div><h2>Источники вдохновения</h2></div>
+    <div class="mood">
+      <figure class="tile t-frost">
+        <svg viewBox="0 0 300 540" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%" aria-hidden="true">
+          <g stroke="#fff" stroke-width="1.2" fill="none" opacity=".9" id="frost"></g>
+        </svg>
+        <figcaption><b>Иней на стекле</b>Ветвящийся рисунок для паве и коллекции «Иней»</figcaption>
+      </figure>
+      <figure class="tile t-arch">
+        <svg viewBox="0 0 300 260" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%" aria-hidden="true">
+          <g fill="none" stroke="#E6B9A0" stroke-width="1.4" opacity=".75">
+            <path d="M40 260V140a40 40 0 0 1 80 0v120M60 260V145a20 20 0 0 1 40 0v115"/>
+            <path d="M180 260V110a50 50 0 0 1 100 0v150M200 260V118a30 30 0 0 1 60 0v142"/>
+            <path d="M130 70l10-20 10 20M120 90h40"/>
+          </g>
+        </svg>
+        <figcaption><b>Наличники и кокошники</b>Арочный ритм для серёг</figcaption>
+      </figure>
+      <figure class="tile t-pom">
+        <svg viewBox="0 0 300 260" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%" aria-hidden="true">
+          <g fill="#B3243C" opacity=".85" id="seeds"></g>
+        </svg>
+        <figcaption><b>Зёрна граната</b>Плотная закрепка мелких камней</figcaption>
+      </figure>
+      <figure class="tile t-mal">
+        <figcaption><b>Уральский малахит</b>Слоистые линии для эмали и вставок</figcaption>
+      </figure>
+    </div>
+    <div class="mood-note">
+      <div></div>
+      <p>Я собираю природные и архитектурные мотивы, затем упрощаю их до формы, которую можно отлить и закрепить. Так из инея получилось кольцо с изумрудом, а из арок наличников серьги для коллекции «Терем».</p>
+    </div>
+  </div>
+</section>
+
+<!-- Лист 6. Эскиз и рендер -->
+<section class="sheet" id="sketch">
+  <div class="wrap">
+    <div class="sheet-head"><div class="sheet-no">Лист 6</div><h2>Путь изделия: от эскиза к рендеру</h2></div>
+    <ol class="steps" aria-label="Этапы работы над изделием">
+      <li class="on">Эскиз</li><li>Гуашевая подача</li><li class="on">3D-модель</li><li class="on">Рендер</li><li>Образец</li>
+    </ol>
+    <div class="compare-row">
+      <div>
+        <div class="compare" id="compare">
+          <div class="layer sketch">
+            <svg viewBox="0 0 400 400" style="width:100%;height:100%" aria-hidden="true">
+              <g fill="none" stroke="#3A3F44" stroke-linecap="round">
+                <g stroke-dasharray="6 5" stroke-width=".6" opacity=".55">
+                  <path d="M200 30V385M40 250H360"/>
+                  <circle cx="200" cy="250" r="114"/>
+                </g>
+                <circle cx="200" cy="250" r="125" stroke-width="1.3"/>
+                <circle cx="201" cy="251" r="126" stroke-width=".5" opacity=".6"/>
+                <circle cx="200" cy="250" r="103" stroke-width="1.3"/>
+                <circle cx="199" cy="249" r="102" stroke-width=".5" opacity=".6"/>
+                <polygon points="170,65 230,65 245,80 245,120 230,135 170,135 155,120 155,80" stroke-width="1.4"/>
+                <polygon points="178,77 222,77 232,87 232,113 222,123 178,123 168,113 168,87" stroke-width=".8"/>
+                <polygon points="186,88 214,88 220,94 220,106 214,112 186,112 180,106 180,94" stroke-width=".8"/>
+                <path d="M170 65L178 77M230 65L222 77M245 80L232 87M245 120L232 113M230 135L222 123M170 135L178 123M155 120L168 113M155 80L168 87" stroke-width=".7"/>
+                <path d="M160 132L176 150M240 132L224 150M176 150H224" stroke-width="1"/>
+                <g stroke-width="1.2"><circle cx="160" cy="70" r="5"/><circle cx="240" cy="70" r="5"/><circle cx="160" cy="130" r="5"/><circle cx="240" cy="130" r="5"/></g>
+                <g stroke-width=".9" opacity=".8">
+                  <path d="M108 190q-8 10-2 22M98 200l-8-4M100 212l-9 3M292 190q8 10 2 22M302 200l8-4M300 212l9 3"/>
+                  <path d="M120 175l-10-6M118 185l-12 0M280 175l10-6M282 185l12 0"/>
+                </g>
+                <path d="M97 250h206" stroke-width=".6"/>
+                <path d="M97 245v10M303 245v10" stroke-width=".6"/>
+              </g>
+              <text x="200" y="242" text-anchor="middle" font-family="Golos Text, sans-serif" font-size="12" fill="#3A3F44">Ø 17,5</text>
+              <text x="262" y="60" font-family="Golos Text, sans-serif" font-size="12" fill="#3A3F44">изумруд 8×6</text>
+              <path d="M258 62l-14 10" stroke="#3A3F44" stroke-width=".6"/>
+            </svg>
+          </div>
+          <div class="layer render">
+            <svg viewBox="0 0 400 400" style="width:100%;height:100%" aria-hidden="true">
+              <defs>
+                <linearGradient id="wg" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#F4F4F2"/><stop offset=".35" stop-color="#B9BEC2"/><stop offset=".55" stop-color="#FFFFFF"/><stop offset=".8" stop-color="#8C9398"/><stop offset="1" stop-color="#D7DADC"/>
+                </linearGradient>
+                <radialGradient id="em" cx=".4" cy=".35" r=".8">
+                  <stop offset="0" stop-color="#7FE0B4"/><stop offset=".45" stop-color="#1E9A6A"/><stop offset="1" stop-color="#0A4A33"/>
+                </radialGradient>
+                <filter id="soft"><feGaussianBlur stdDeviation="6"/></filter>
+              </defs>
+              <ellipse cx="200" cy="385" rx="120" ry="8" fill="#000" opacity=".35" filter="url(#soft)"/>
+              <path fill-rule="evenodd" fill="url(#wg)" d="M75 250a125 125 0 1 0 250 0a125 125 0 1 0-250 0zM97 250a103 103 0 1 1 206 0a103 103 0 1 1-206 0z"/>
+              <path d="M110 300a103 103 0 0 0 180 0" fill="none" stroke="#5E666B" stroke-width="2" opacity=".5"/>
+              <g fill="#fff" opacity=".9" id="pave"></g>
+              <path d="M160 132L176 150H224L240 132Z" fill="url(#wg)"/>
+              <polygon points="170,65 230,65 245,80 245,120 230,135 170,135 155,120 155,80" fill="url(#em)"/>
+              <g fill="none" stroke="#B8F5D8" stroke-width=".7" opacity=".7">
+                <polygon points="178,77 222,77 232,87 232,113 222,123 178,123 168,113 168,87"/>
+                <polygon points="186,88 214,88 220,94 220,106 214,112 186,112 180,106 180,94"/>
+                <path d="M170 65L178 77M230 65L222 77M245 80L232 87M245 120L232 113M230 135L222 123M170 135L178 123M155 120L168 113M155 80L168 87"/>
+              </g>
+              <path d="M186 88h22l-14 18h-8z" fill="#fff" opacity=".35"/>
+              <g fill="url(#wg)" stroke="#7D858A" stroke-width=".5"><circle cx="160" cy="70" r="5.5"/><circle cx="240" cy="70" r="5.5"/><circle cx="160" cy="130" r="5.5"/><circle cx="240" cy="130" r="5.5"/></g>
+            </svg>
+          </div>
+          <div class="bar"></div>
+          <div class="knob"><svg viewBox="0 0 20 12" fill="none" stroke="#0F3B33" stroke-width="1.4"><path d="M6 1L1 6l5 5M14 1l5 5-5 5"/></svg></div>
+          <span class="tag l">Эскиз</span><span class="tag r">Рендер</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Сравнить эскиз и рендер: сдвиньте ползунок">
+        </div>
+        <p class="compare-hint">Сдвиньте ползунок, чтобы сравнить эскиз и итоговый рендер.</p>
+      </div>
+      <div class="passport">
+        <h3>Кольцо «Иней»</h3>
+        <p>Изумруд в восьмиугольной огранке, по шинке дорожка бриллиантов, как морозный узор по краю стекла.</p>
+        <table class="specs">
+          <tr><th>Металл</th><td>Белое золото 585</td></tr>
+          <tr><th>Вставки</th><td>Изумруд 8×6 мм, бриллианты Кр57 ×14</td></tr>
+          <tr><th>Закрепка</th><td>Крапановая, дорожка в касту</td></tr>
+          <tr><th>Вес металла</th><td>≈ 4,2 г (17,5 размер)</td></tr>
+          <tr><th>Программы</th><td>Rhinoceros, MatrixGold, KeyShot</td></tr>
+          <tr><th>Производство</th><td>Выращивание мастер-модели, литьё</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Лист 7. 3D-проекты -->
+<section class="sheet velvet" id="models">
+  <div class="wrap">
+    <div class="sheet-head"><div class="sheet-no">Лист 7</div><h2>3D-проекты</h2></div>
+    <div class="models">
+      <article class="model">
+        <div class="stage">
+          <svg viewBox="0 0 200 250" aria-hidden="true">
+            <path class="hi" d="M100 30a10 10 0 1 1 0.1 0"/>
+            <path class="hi" d="M100 50C60 110 50 150 60 180a42 42 0 0 0 80 0c10-30 0-70-40-130z"/>
+            <path d="M100 50C80 110 78 150 82 182q18 40 36 0c4-32 2-72-18-132z"/>
+            <path d="M100 50v170"/>
+            <path d="M100 50C120 110 122 150 118 182"/>
+            <ellipse cx="100" cy="120" rx="27" ry="6"/><ellipse cx="100" cy="150" rx="37" ry="8"/><ellipse cx="100" cy="180" rx="40" ry="9"/><ellipse cx="100" cy="205" rx="28" ry="6"/>
+          </svg>
+        </div>
+        <h3>Подвеска «Капля»</h3>
+        <p>Полая форма с рельефом малахитовых слоёв, облегчена для серии.</p>
+        <dl><dt>Металл</dt><dd>Серебро 925</dd><dt>Вес</dt><dd>≈ 5,8 г</dd><dt>Файл</dt><dd>STL под выращивание</dd></dl>
+      </article>
+      <article class="model">
+        <div class="stage">
+          <svg viewBox="0 0 200 250" aria-hidden="true">
+            <path class="hi" d="M40 210V120a60 60 0 0 1 120 0v90"/>
+            <path class="hi" d="M58 210V124a42 42 0 0 1 84 0v86"/>
+            <path d="M49 210V122a51 51 0 0 1 102 0v88"/>
+            <path d="M100 60v-20M92 40h16M100 18a8 8 0 1 1 0.1 0"/>
+            <path d="M40 150h18M142 150h18M40 180h18M142 180h18M44 100l15 8M156 100l-15 8M70 66l9 14M130 66l-9 14"/>
+            <circle cx="100" cy="130" r="14" class="hi"/><circle cx="100" cy="130" r="7"/>
+          </svg>
+        </div>
+        <h3>Серьги «Терем»</h3>
+        <p>Арка наличника с сапфиром в центре, замок английский.</p>
+        <dl><dt>Металл</dt><dd>Жёлтое золото 585</dd><dt>Вес</dt><dd>≈ 3,4 г пара</dd><dt>Вставки</dt><dd>Сапфир 4 мм</dd></dl>
+      </article>
+      <article class="model">
+        <div class="stage">
+          <svg viewBox="0 0 200 250" aria-hidden="true">
+            <ellipse class="hi" cx="100" cy="140" rx="70" ry="70"/>
+            <ellipse class="hi" cx="100" cy="140" rx="52" ry="52"/>
+            <ellipse cx="100" cy="140" rx="61" ry="61"/>
+            <ellipse cx="100" cy="140" rx="70" ry="22"/><ellipse cx="100" cy="140" rx="70" ry="46"/>
+            <ellipse cx="100" cy="140" rx="22" ry="70"/><ellipse cx="100" cy="140" rx="46" ry="70"/>
+            <g class="hi"><circle cx="100" cy="74" r="6"/><circle cx="85" cy="78" r="4.5"/><circle cx="115" cy="78" r="4.5"/><circle cx="72" cy="86" r="3.5"/><circle cx="128" cy="86" r="3.5"/></g>
+          </svg>
+        </div>
+        <h3>Кольцо «Гранат»</h3>
+        <p>Широкая шинка, гроздь гранатов в закрепке «паве».</p>
+        <dl><dt>Металл</dt><dd>Красное золото 585</dd><dt>Вес</dt><dd>≈ 6,1 г</dd><dt>Вставки</dt><dd>Гранаты 2–4 мм ×5</dd></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Лист 8. Контакты -->
+<section class="sheet" id="contacts">
+  <div class="wrap">
+    <div class="contacts">
+      <div class="sheet-no">Лист 8</div>
+      <h2>Контакты</h2>
+      <ul>
+        <li><a href="tel:+70000000000">+7 (000) 000-00-00</a></li>
+        <li><a href="mailto:name@example.ru">name@example.ru</a></li>
+        <li>Telegram: @username</li>
+      </ul>
+    </div>
+    <p class="demo-note">Демо-макет. Имя, места работы, даты, изделия и изображения условные: в рабочей версии они заменяются на ваши данные, эскизы, рендеры и фото изделий.</p>
+  </div>
+</section>
+</main>
+
+<script src="portfolio.js"></script>
+</body>
+</html>
